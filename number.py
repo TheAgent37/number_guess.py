@@ -4,6 +4,21 @@ MAX_GUESS = 3
 MIN_NUM = 1
 MAX_NUM = 5
 
+print(
+        f"""
+Welcome to my number guessing game!
+
+
+{'*'*60}
+Rules:
+
+-You have {MAX_GUESS} tries
+-Random generated number is between {MIN_NUM} and {MAX_NUM} (both including)
+-You can play the game how many as you want!
+{'*'*60}
+
+"""
+    )
 
 def guess():
     guess_count = int()
@@ -28,9 +43,9 @@ def guess():
         if gnum == num:
             print(f"You guess the number ({num}) in {guess_count} tries!\n\n")
             return try_again(True)
-    else:
-        print("You couldn't guess the number!\n\n")
-        return try_again(False)
+
+    print("You couldn't guess the number!\n\n")
+    return try_again(True)
 
 
 def try_again(win):
@@ -40,7 +55,7 @@ def try_again(win):
         if play == "y":
             return guess()
         if play == "n":
-            exit()
+            pass
         else:
             print("Invalid input")
             return try_again(win)
@@ -50,29 +65,10 @@ def try_again(win):
         if play == "y":
             return guess()
         if play == "n":
-            exit()
+            pass
         else:
             print("Invalid input")
             return try_again(win)
 
 
-def main():
-    print(
-        f"""
-Welcome to my number guessing game!
-        
-
-{'*'*60}
-Rules:
-
--You have {MAX_GUESS} tries
--Random generated number is between {MIN_NUM} and {MAX_NUM} (both including)
--You can play the game how many as you want!
-{'*'*60} 
-
-"""
-    )
-    guess()
-
-
-main()
+guess()
