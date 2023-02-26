@@ -7,20 +7,22 @@ MAX_NUM = 5
 print(
         f"""
 Welcome to my number guessing game!
+        
 
-
-{'*'*60}
+{"*"*60}
 Rules:
 
 -You have {MAX_GUESS} tries
 -Random generated number is between {MIN_NUM} and {MAX_NUM} (both including)
 -You can play the game how many as you want!
-{'*'*60}
+{"*"*60} 
 
 """
     )
 
-def guess():
+
+
+def Guess():
     guess_count = int()
     num = random.randint(MIN_NUM, MAX_NUM)
     print(f"Random number created between {MIN_NUM} and {MAX_NUM}\n")
@@ -42,33 +44,33 @@ def guess():
 
         if gnum == num:
             print(f"You guess the number ({num}) in {guess_count} tries!\n\n")
-            return try_again(True)
+            Try_again(True)
+    else:
+        print("You couldn't guess the number!\n\n")
+        Try_again(False)
 
-    print("You couldn't guess the number!\n\n")
-    return try_again(True)
 
-
-def try_again(win):
-    if win:
+def Try_again(win):
+    while win:
         play = input("Congratulations! You wan't to play again? yes(y) no(n): ")
         print("\n")
         if play == "y":
-            return guess()
+            Guess()
         if play == "n":
-            pass
+            exit()
         else:
             print("Invalid input")
-            return try_again(win)
-    else:
+            Try_again(win)
+    while win is False:
         play = input("Do you wan't to try again? yes(y) no(n): ")
         print("\n")
         if play == "y":
-            return guess()
+            Guess()
         if play == "n":
-            pass
+            exit()
         else:
             print("Invalid input")
-            return try_again(win)
+            Try_again(win)
 
 
-guess()
+Guess()
