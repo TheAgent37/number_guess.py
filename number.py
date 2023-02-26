@@ -5,7 +5,7 @@ MIN_NUM = 1
 MAX_NUM = 5
 
 print(
-        f"""
+    f"""
 Welcome to my number guessing game!
         
 
@@ -18,8 +18,7 @@ Rules:
 {"*"*60} 
 
 """
-    )
-
+)
 
 
 def Guess():
